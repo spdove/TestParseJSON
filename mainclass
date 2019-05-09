@@ -1,0 +1,40 @@
+package com.tweek.JsonParse;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Iterator;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import org.json.simple.parser.JSONParser;
+
+
+public class JsonParser {
+    public static void main(String args[]){
+        JSONParser parser = new JSONParser();
+        try{
+            Object obj = parser.parse(new FileReader("C:\\Users\\u90566\\Downloads\\4c4ac8a63a3984d54508055d4b76912c7c87e6d1"));
+            JSONObject jsonObject = (JSONObject)obj;
+            String format = (String) jsonObject.get("format");
+            System.out.println("format is : " +format);
+            
+             String Location = (String) jsonObject.get("location");
+             System.out.println("Location is: "+Location);
+
+             //loop array
+//            JSONArray courseArray = (JSONArray) jsonObject.get("courses");
+//            Iterator<String> iterator = courseArray.iterator();
+            
+
+
+
+    }
+        catch(FileNotFoundException e){e.printStackTrace();}
+        catch(IOException e){e.printStackTrace();}
+        catch(Exception e){e.printStackTrace();}
+
+    }
+}
